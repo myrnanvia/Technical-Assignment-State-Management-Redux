@@ -24,7 +24,17 @@ const cartReducer = (state = initState, action) => {
 
   //INSIDE HOME COMPONENT
   if (action.type === ADD_TO_CART) {
+    // import produce from "immer";
     // Add code here
+    const id = action.payload;
+    const found = state.items.find((item) => item.id === id);
+    if(!!found) {
+      state.addedItems.push(found);
+    }
+    if (found !== undefined && found !==null) {
+      state.addedItems.push(found);
+    }
+    
   }
   if (action.type === REMOVE_ITEM) {
     // Add code here
